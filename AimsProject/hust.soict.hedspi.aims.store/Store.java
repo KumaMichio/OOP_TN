@@ -35,7 +35,20 @@ public class Store {
             System.out.println("Media not found in the store: " + media.getTitle());
         }
     }
-    
+    //remove find by title
+    public void removeMedia(String title) {
+		// Search for the media item with the given title
+	    for (Media media : itemsInStore) {
+	        if (media.getTitle().equalsIgnoreCase(title)) {
+	            // Remove the item if found
+	            itemsInStore.remove(media);
+	            System.out.println("Media removed: " + title);
+	            return; // Exit the method after removal
+	        }
+	    }
+	    // If the loop completes, the title was not found
+	    System.out.println("Media not found: " + title);
+	}
     public void displayStore() {
         if (itemsInStore.isEmpty()) {
             System.out.println("The store is currently empty.");
@@ -54,6 +67,4 @@ public class Store {
         }
         return null; 
     }
-
-
 }
