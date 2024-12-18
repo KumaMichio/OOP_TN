@@ -1,6 +1,7 @@
 package hust.soict.hedspi.swing;
 
 import java.awt.BorderLayout;
+
 import java.awt.ComponentOrientation;
 import java.awt.Container;
 import java.awt.GridLayout;
@@ -14,7 +15,11 @@ public class NumberGrid extends JFrame {
     private JButton[] btnNumbers = new JButton[10];
     private JButton btnDelete, btnReset;
     private JTextField tfDisplay;
+    
 
+	public JTextField getTfDisplay() {
+		return tfDisplay;
+	}
 	public NumberGrid() {
         tfDisplay = new JTextField();
         tfDisplay.setComponentOrientation(
@@ -34,7 +39,7 @@ public class NumberGrid extends JFrame {
         setVisible(true);
     }
     void addButtons(JPanel panelButtons) {
-        ButtonListener btnListener = new ButtonListener();
+        ButtonListener btnListener = new ButtonListener(this);
         for (int i = 1; i <= 9; i++) {
             btnNumbers[i] = new JButton("" + i);
             panelButtons.add(btnNumbers[i]);
